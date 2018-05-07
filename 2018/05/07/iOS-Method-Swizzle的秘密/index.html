@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="Don&apos;t say, just do it!">
-<meta name="keywords" content="博客，技术，互联网，iOS，web，android，人工智能，算法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="速度男孩のBlog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="什么是Method Swizzling方法交换(Method Swizzling)，顾名思义就是将两个方法的实现交换，即由原来的SEL(A)－IMP(A)、SEL(B)－IMP(B)对应关系变成了SEL(A)－IMP(B)、SEL(B)－IMP(A)，如下图：  Method类型Method类型是一个objc_method结构体指针，而结构体objc_method有三个成员，方法交换(Method">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS Method Swizzle的秘密">
+<meta property="og:url" content="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/index.html">
 <meta property="og:site_name" content="速度男孩のBlog">
-<meta property="og:description" content="Don&apos;t say, just do it!">
+<meta property="og:description" content="什么是Method Swizzling方法交换(Method Swizzling)，顾名思义就是将两个方法的实现交换，即由原来的SEL(A)－IMP(A)、SEL(B)－IMP(B)对应关系变成了SEL(A)－IMP(B)、SEL(B)－IMP(A)，如下图：  Method类型Method类型是一个objc_method结构体指针，而结构体objc_method有三个成员，方法交换(Method">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/方法替换Befor和After.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/子类方法替换1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/子类方法替换2.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/子类方法替换3.png">
+<meta property="og:updated_time" content="2018-05-07T14:29:51.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="速度男孩のBlog">
-<meta name="twitter:description" content="Don&apos;t say, just do it!">
+<meta name="twitter:title" content="iOS Method Swizzle的秘密">
+<meta name="twitter:description" content="什么是Method Swizzling方法交换(Method Swizzling)，顾名思义就是将两个方法的实现交换，即由原来的SEL(A)－IMP(A)、SEL(B)－IMP(B)对应关系变成了SEL(A)－IMP(B)、SEL(B)－IMP(A)，如下图：  Method类型Method类型是一个objc_method结构体指针，而结构体objc_method有三个成员，方法交换(Method">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/方法替换Befor和After.png">
 
 
 
@@ -119,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/"/>
 
 
 
 
 
-  <title>速度男孩のBlog</title>
+  <title>iOS Method Swizzle的秘密 | 速度男孩のBlog</title>
   
 
 
@@ -154,8 +160,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,9 +297,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -324,9 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/07/iOS-Method-Swizzle的秘密/" itemprop="url">iOS Method Swizzle的秘密</a></h1>
+          <h1 class="post-title" itemprop="name headline">iOS Method Swizzle的秘密</h1>
         
 
         <div class="post-meta">
@@ -369,6 +372,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"> 浏览</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -387,9 +395,7 @@
       
 
       
-        
-          
-            <h2 id="什么是Method-Swizzling"><a href="#什么是Method-Swizzling" class="headerlink" title="什么是Method Swizzling"></a>什么是Method Swizzling</h2><p>方法交换(Method Swizzling)，顾名思义就是将两个方法的实现交换，即由原来的SEL(A)－IMP(A)、SEL(B)－IMP(B)对应关系变成了SEL(A)－IMP(B)、SEL(B)－IMP(A)，如下图：</p>
+        <h2 id="什么是Method-Swizzling"><a href="#什么是Method-Swizzling" class="headerlink" title="什么是Method Swizzling"></a>什么是Method Swizzling</h2><p>方法交换(Method Swizzling)，顾名思义就是将两个方法的实现交换，即由原来的SEL(A)－IMP(A)、SEL(B)－IMP(B)对应关系变成了SEL(A)－IMP(B)、SEL(B)－IMP(A)，如下图：</p>
 <p><img src="/2018/05/07/iOS-Method-Swizzle的秘密/方法替换Befor和After.png" alt=""></p>
 <h2 id="Method类型"><a href="#Method类型" class="headerlink" title="Method类型"></a>Method类型</h2><p>Method类型是一个<code>objc_method</code>结构体指针，而结构体<code>objc_method</code>有三个成员，方法交换(Method Swizzling)的本质就是更改两个成员<code>method_types</code>和<code>method_imp</code></p>
 <p><a href="https://opensource.apple.com/source/objc4/objc4-437/runtime/runtime.h" target="_blank" rel="noopener">runtime.h源码</a></p>
@@ -425,8 +431,6 @@
 <li><a href="http://nshipster.cn/method-swizzling/" target="_blank" rel="noopener">Method Swizzling</a></li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -441,431 +445,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/常用加密算法探寻/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Robin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="速度男孩のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/06/常用加密算法探寻/" itemprop="url">常用加密算法探寻</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T08:42:44+08:00">
-                2018-04-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/安全/" itemprop="url" rel="index">
-                    <span itemprop="name">安全</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/06/常用加密算法探寻/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/06/常用加密算法探寻/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在开发过程中，常常用到各种加密方法和算法，本文总结了几种常用加密方法的原理。</p>
-<hr>
-<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p><img src="/2018/04/06/常用加密算法探寻/常用加密算法探寻2.png" alt=""></p>
-<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>加密和解密数据使用同一个密钥，适合对大量数据进行加解密</p>
-<h3 id="安全性："><a href="#安全性：" class="headerlink" title="安全性："></a>安全性：</h3><p>关键是密钥的保存方式，加密或是解密的任何一方泄漏密钥，都会导致信息泄漏</p>
-<h3 id="代表算法："><a href="#代表算法：" class="headerlink" title="代表算法："></a>代表算法：</h3><p>DES、3DES、Blowfish、IDEA、RC4、RC5、RC6、AES等</p>
-<h3 id="对称密码常用的数学运算："><a href="#对称密码常用的数学运算：" class="headerlink" title="对称密码常用的数学运算："></a>对称密码常用的数学运算：</h3><blockquote>
-<ul>
-<li><strong>移位和循环移位</strong><br>　　移位就是将一段数码按照规定的位数整体性地左移或右移。循环右移就是当右移时，把数码的最后的位移到数码的最前头，循环左移正相反。例如，对十进制数码12345678循环右移1位（十进制位）的结果为81234567，而循环左移1位的结果则为23456781。</li>
-<li><strong>置换</strong><br>　　就是将数码中的某一位的值根据置换表的规定，用另一位代替。它不像移位操作那样整齐有序，看上去杂乱无章。这正是加密所需,被经常应用。</li>
-<li><strong>扩展</strong><br>　　就是将一段数码扩展成比原来位数更长的数码。扩展方法有多种,例如,可以用置换的方法，以扩展置换表来规定扩展后的数码每一位的替代值。</li>
-<li><strong>压缩</strong><br>　　就是将一段数码压缩成比原来位数更短的数码。压缩方法有多种，例如，也可以用置换的方法，以表来规定压缩后的数码每一位的替代值。</li>
-<li><strong>异或</strong><br>　　这是一种二进制布尔代数运算。异或的数学符号为⊕ ，它的运算法则如下：<br>1⊕1 = 0<br>0⊕0 = 0<br>1⊕0 = 1<br>0⊕1 = 1<br>　　也可以简单地理解为，参与异或运算的两数位如相等，则结果为0，不等则为1。</li>
-<li><strong>迭代</strong><br>　　迭代就是多次重复相同的运算，这在密码算法中经常使用，以使得形成的密文更加难以破解。</li>
-</ul>
-</blockquote>
-<hr>
-<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><p><img src="/2018/04/06/常用加密算法探寻/常用加密算法探寻3.png" alt=""></p>
-<h3 id="原理：-1"><a href="#原理：-1" class="headerlink" title="原理："></a>原理：</h3><p>非对称加密算法需要两个密钥：公开密钥（publickey）和私有密钥（privatekey）。公开密钥与私有密钥是一对，如果用公开密钥对数据进行加密，只有用对应的私有密钥才能解密；如果用私有密钥对数据进行加密，那么只有用对应的公开密钥才能解密</p>
-<h3 id="安全性：-1"><a href="#安全性：-1" class="headerlink" title="安全性："></a>安全性：</h3><p>公钥可以被任何人知道，但是私钥被泄漏就会导致信息泄漏</p>
-<h3 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h3><p>数字签名，私钥拥有者对信息进行加密，接受者使用公钥解密成功，就可以确定发送者的身份</p>
-<h3 id="密钥长度："><a href="#密钥长度：" class="headerlink" title="密钥长度："></a>密钥长度：</h3><p>通常是1024，2048等。密钥长度增长一倍，公钥操作所需时间增加约4倍，私钥操作所需时间增加约8倍，公私钥生成时间约增长16倍</p>
-<h3 id="加密的明文长度："><a href="#加密的明文长度：" class="headerlink" title="加密的明文长度："></a>加密的明文长度：</h3><p>加密的明文长度不能超过RSA密钥的长度减去11byte，比如密钥长度是1024位的，1024位=1024bit=128byte，128-11=117byte，所以明文长度不能超过117byte，如果长度超过该值将会抛出异常。加密后密文的长度为密钥的长度，如密钥长度为1024bit(128Byte)，最后生成的密文固定为 1024bit(128Byte)</p>
-<h3 id="代表算法：-1"><a href="#代表算法：-1" class="headerlink" title="代表算法："></a>代表算法：</h3><p>DES、3DES、Blowfish、IDEA、RC4、RC5、RC6、AES等</p>
-<hr>
-<h2 id="哈希散列算法"><a href="#哈希散列算法" class="headerlink" title="哈希散列算法"></a>哈希散列算法</h2><p><img src="/2018/04/06/常用加密算法探寻/常用加密算法探寻.png" alt=""></p>
-<h3 id="原理：-2"><a href="#原理：-2" class="headerlink" title="原理："></a>原理：</h3><p>采用某种散列函数，输入不同长度的明文，得到相同的长度的密文，明文的微小变化都能引起密文的巨大变化。其实哈希散列算法不算是真正的加密，而是生成对应明文的指纹信息，用来校验数据的完整性。</p>
-<h3 id="安全性：-2"><a href="#安全性：-2" class="headerlink" title="安全性："></a>安全性：</h3><p>不能通过密文反推明文，通常作为数据的完整性校验</p>
-<h3 id="应用场景1："><a href="#应用场景1：" class="headerlink" title="应用场景1："></a>应用场景1：</h3><p>生成信息摘要，验证信息的完整性</p>
-<h3 id="应用场景2："><a href="#应用场景2：" class="headerlink" title="应用场景2："></a>应用场景2：</h3><p>不用明文存储用户密码，比如使用md5(md5(用户密码)+salt)来存储密码和验证密码，防止攻击者用彩虹表攻击 </p>
-<h3 id="代表算法：-2"><a href="#代表算法：-2" class="headerlink" title="代表算法："></a>代表算法：</h3><p>MD2、MD4、MD5、PANAMA、SHA-0、SHA-1、SHA-256、SHA-512等</p>
-<h2 id="常用算法对比"><a href="#常用算法对比" class="headerlink" title="常用算法对比"></a>常用算法对比</h2><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>密钥长度</th>
-<th>运算速度</th>
-<th>安全性</th>
-<th>资源消耗</th>
-<th>加密类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DES</td>
-<td>56位</td>
-<td>较快</td>
-<td>低</td>
-<td>中</td>
-<td>对称</td>
-</tr>
-<tr>
-<td>3DES</td>
-<td>168位</td>
-<td>慢</td>
-<td>中</td>
-<td>高</td>
-<td>对称</td>
-</tr>
-<tr>
-<td>IDEA</td>
-<td>128位</td>
-<td>较慢</td>
-<td>中</td>
-<td>高</td>
-<td>对称</td>
-</tr>
-<tr>
-<td>AES</td>
-<td>128、192、256位</td>
-<td>快</td>
-<td>高</td>
-<td>低</td>
-<td>对称</td>
-</tr>
-<tr>
-<td>RSA</td>
-<td>1024、2048、3072、4096</td>
-<td>慢</td>
-<td>高</td>
-<td>高</td>
-<td>非对称</td>
-</tr>
-<tr>
-<td>DSA</td>
-<td>1024、2048、3072、4096</td>
-<td>慢</td>
-<td>高</td>
-<td>低</td>
-<td>非对称</td>
-</tr>
-<tr>
-<td>ECC</td>
-<td>256</td>
-<td>快</td>
-<td>高</td>
-<td>低</td>
-<td>非对称</td>
-</tr>
-<tr>
-<td>SHA-1</td>
-<td></td>
-<td>慢</td>
-<td>高</td>
-<td>低</td>
-<td>散列</td>
-</tr>
-<tr>
-<td>MD5</td>
-<td></td>
-<td>快</td>
-<td>中</td>
-<td>低</td>
-<td>散列</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
-<li><a href="https://www.jianshu.com/p/c44a8a1b7c38" target="_blank" rel="noopener">DES加密算法原理</a></li>
-<li><a href="http://www.hankcs.com/security/des-algorithm-illustrated.html" target="_blank" rel="noopener">DES算法实例详解</a></li>
-<li><a href="https://blog.csdn.net/jinxin_cuit/article/details/72626429" target="_blank" rel="noopener">AES对称加密算法扫盲</a></li>
-<li><a href="http://www.cnblogs.com/ttss/p/4279757.html" target="_blank" rel="noopener">DES，3DES,AES这三种对称密钥的区别与联系</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/33195438" target="_blank" rel="noopener">数字签名算法介绍和区别</a></li>
-<li><a href="https://www.jianshu.com/p/a7b900e8e50a" target="_blank" rel="noopener">HOTP和TOTP算法图解</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Robin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="速度男孩のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/01/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-01T08:44:26+08:00">
-                2018-04-01
-              </time>
+              <a href="/2018/04/06/常用加密算法探寻/" rel="next" title="常用加密算法探寻">
+                <i class="fa fa-chevron-left"></i> 常用加密算法探寻
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/01/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/01/hello-world/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -875,10 +484,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -886,6 +496,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -906,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1025,6 +658,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Method-Swizzling"><span class="nav-number">1.</span> <span class="nav-text">什么是Method Swizzling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method类型"><span class="nav-number">2.</span> <span class="nav-text">Method类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-Swizzling-实现方式"><span class="nav-number">3.</span> <span class="nav-text">Method Swizzling 实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考："><span class="nav-number">4.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1185,6 +834,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1202,6 +855,18 @@
       <script id="dsq-count-scr" src="https://robinliu007.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/05/07/iOS-Method-Swizzle的秘密/';
+          this.page.identifier = '2018/05/07/iOS-Method-Swizzle的秘密/';
+          this.page.title = 'iOS Method Swizzle的秘密';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://robinliu007.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
